@@ -5,7 +5,7 @@ var app = require('express')(),
     fs = require('fs'),
     mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/test');
+mongoose.connect('mongodb://mongo/test');
 var db = mongoose.connection;
 var Message;
 db.on('error', console.error.bind(console, 'connection error:'));
