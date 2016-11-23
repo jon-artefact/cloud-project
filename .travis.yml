@@ -1,0 +1,14 @@
+sudo: required
+
+services:
+  - docker
+
+language: node_js
+node_js:
+  - "6.1"
+
+after_success:
+  - "docker login -u $DOCKER_USER -p $DOCKER_PASSWORD"
+  - "docker build -t $DOCKER_USER/anon-chat ."
+  - "docker push $DOCKER_USER/anon-chat"
+

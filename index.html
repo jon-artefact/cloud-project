@@ -11,7 +11,7 @@
             }
         </style>
     </head>
- 
+
     <body>
         <h1>Le super Chat temps réel !</h1>
 
@@ -21,7 +21,7 @@
         </form>
 
         <section id="zone_chat">
-            
+
         </section>
 
 
@@ -30,7 +30,8 @@
         <script>
 
             // Connexion à socket.io
-            var socket = io.connect('http://localhost:8080');
+            var socket = io.connect(window.location.href);
+            console.log(window.location.href);
 
             // On demande le pseudo, on l'envoie au serveur et on l'affiche dans le titre
             var pseudo = prompt('Quel est votre pseudo ?');
@@ -55,7 +56,7 @@
                 $('#message').val('').focus(); // Vide la zone de Chat et remet le focus dessus
                 return false; // Permet de bloquer l'envoi "classique" du formulaire
             });
-            
+
             // Ajoute un message dans la page
             function insereMessage(pseudo, message) {
                 $('#zone_chat').prepend('<p><strong>' + pseudo + '</strong> ' + message + '</p>');
@@ -63,4 +64,3 @@
         </script>
     </body>
 </html>
-
