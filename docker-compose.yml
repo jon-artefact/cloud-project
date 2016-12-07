@@ -1,10 +1,23 @@
+traefik:
+  image: traefik
+  command: --web --docker --docker.domain=docker.localhost --logLevel=DEBUG
+  ports:
+    - "80:80"
+    - "443:443"
+    - "8080:8080"
+  volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+    - /dev/null:/traefik.toml
 mongo:
     image: mongo
     volumes:
         - /opt/data:/data/db
-server:
-    ports:
-        - 80:8080
+anon-chat:
+    image: gaetanroche/anon-chat
     links:
         - mongo
-    image: gaetanroche/anon-chat
+    labels:
+        - "traefik.port=8080"
+        - "traefik.backend=back"
+        - "traefik.frontend.rule=Host:test-anon.jonathan.pl, localhost"
+        - "traefik.frontend.entryPoints=http,https"

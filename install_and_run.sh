@@ -1,2 +1,2 @@
-docker-compose pull server
+docker-compose pull anon-chat
 docker-compose up -d
