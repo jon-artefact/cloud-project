@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
         <script src="/socket.io/socket.io.js"></script>
         <meta charset="utf-8" />
         <title>Anon-Chat</title>
@@ -30,7 +30,6 @@
 
             // Connexion à socket.io
             var socket = io.connect(window.location.href);
-            console.log(window.location.href);
 
             // On demande le pseudo, on l'envoie au serveur et on l'affiche dans le titre
             var pseudo = prompt('Quel est votre pseudo ?');

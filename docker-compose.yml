@@ -1,6 +1,6 @@
 traefik:
   image: traefik
-  command: --web --docker --docker.domain=docker.localhost --logLevel=DEBUG
+  command: --web --docker --acme --acme.entryPoint=https --acme.domains=chat.jonathan.pl --acme.email=admin@jonathan.pl --entryPoints='Name:http Address::80 Redirect.EntryPoint:https' --entryPoints='Name:https Address::443 TLS' --acme.storage=acme.json --acme.onDemand=true --docker.domain=docker.localhost --logLevel=INFO
   ports:
     - "80:80"
     - "443:443"
@@ -8,10 +8,15 @@ traefik:
   volumes:
     - /var/run/docker.sock:/var/run/docker.sock
     - /dev/null:/traefik.toml
+    - /opt/acme/acme.json:/acme.json
+  labels:
+    - "traefik.enable=false"
 mongo:
     image: mongo
     volumes:
         - /opt/data:/data/db
+    labels:
+        - "traefik.enable=false"
 anon-chat:
     image: gaetanroche/anon-chat
     links:
