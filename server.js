@@ -5,12 +5,13 @@ var app = require('express')(),
     fs = require('fs'),
     mongoose = require('mongoose');
 
-mongoose.connect('mongodb://mongo/test');
+mongoose.connect('mongodb://localhost/test');
 var db = mongoose.connection;
 var Message;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
-    console.log("we're connected!");
+    console
+        .log("we're connected!");
 
     // Définition du schéma de la table
     var chatSchema = mongoose.Schema({
@@ -24,6 +25,10 @@ db.once('open', function() {
 // Chargement de la page index.html
 app.get('/', function (req, res) {
   res.sendfile(__dirname + '/index.html');
+});
+
+app.get('/style.css',function (req,res) {
+    res.sendfile(__dirname + '/style.css')
 });
 
 io.sockets.on('connection', function (socket, pseudo) {
