@@ -19,5 +19,5 @@ anon-chat:
     labels:
         - "traefik.port=8080"
         - "traefik.backend=back"
-        - "traefik.frontend.rule=Host:test-anon.jonathan.pl, localhost"
+        - "traefik.frontend.rule=Host:chat.jonathan.pl, localhost"
         - "traefik.frontend.entryPoints=http,https"
