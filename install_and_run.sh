@@ -4,8 +4,8 @@ docker-compose pull anon-chat
 docker stop cloudproject_mongo_1
 docker rm cloudproject_mongo_1
 docker stop cloudproject_traefik_1
-docker rm cloudproject_mongo_1
+docker rm cloudproject_traefik_1
 docker stop cloudproject_anon-chat_1
-docker rm cloudproject_mongo_1
+docker rm cloudproject_anon-chat_1
 # Start our containers
 docker-compose up -d
