@@ -1,0 +1,28 @@
+.title{
+    text-align:center;
+}
+
+.inputForm{
+    text-align: center;
+}
+
+.mainContent{
+    margin-left: 31%;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    width: 40%;
+    background-color: ghostwhite;
+    border-radius: 25px;
+}
+.form-control {
+    width: auto;
+    display: inline;
+}
+
+.pseudo{
+    font-size: 18px;
+}
+
+body{
+    background-color: darkgrey;
+}

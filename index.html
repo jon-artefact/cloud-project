@@ -1,32 +1,35 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8" />
-        <title>Super Chat temps réel !</title>
-        <style>
-            #zone_chat strong {
-                color: white;
-                background-color: black;
-                padding: 2px;
-            }
-        </style>
-    </head>
-
-    <body>
-        <h1>Le super Chat temps réel !</h1>
-
-        <form action="/" method="post" id="formulaire_chat">
-            <input type="text" name="message" id="message" placeholder="Votre message..." size="50" autofocus />
-            <input type="submit" id="envoi_message" value="Envoyer" />
-        </form>
-
-        <section id="zone_chat">
-
-        </section>
-
 
         <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
         <script src="/socket.io/socket.io.js"></script>
+        <meta charset="utf-8" />
+        <title>Super Chat temps réel !</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+    </head>
+
+    <body>
+    <div class = mainContent>
+
+
+        <h1 class="title"> Le Super Chat temps réel !</h1>
+
+        <form class="inputForm" action="/" method="post" id="formulaire_chat">
+            <div class="form-group">
+                <input type="text" class="form-control" name="message" id="message" placeholder="Votre message..." size="50" autofocus />
+                <input type="submit" class="btn btn-default" id="envoi_message" value="Envoyer" />
+            </div>
+        </form>
+
+        <section class="zoneChat" id="zone_chat">
+
+        </section>
+    </div>
+
+
+
         <script>
 
             // Connexion à socket.io
@@ -59,7 +62,7 @@
 
             // Ajoute un message dans la page
             function insereMessage(pseudo, message) {
-                $('#zone_chat').prepend('<p><strong>' + pseudo + '</strong> ' + message + '</p>');
+                $('#zone_chat').prepend('<p><strong class="pseudo">' + pseudo + '</strong> ' + message + '</p>');
             }
         </script>
     </body>
